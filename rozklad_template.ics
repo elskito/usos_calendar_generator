@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+PRODID:-//USOS//PL
+VERSION:1.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Zajęcia USOS
+X-WR-TIMEZONE:Europe/Warsaw
+TZID:Europe/Warsaw
+{% for data in dates %}
+BEGIN:VEVENT
+DTSTART:{{ data.hod }}
+DTEND:{{ data.hdo }}
+DTSTAMP:{{ data.hod }}
+UID:{{ data.uid }}
+CREATED:20201008T145015
+DESCRIPTION:{{ data.id_prowadzacego}}
+LAST-MODIFIED:20201008T145015
+LOCATION:{{ data.id_sali }}
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:{{ data.id_pozycjiplanu}}
+TRANSP:OPAQUE
+END:VEVENT
+{% endfor %}
+END:VCALENDAR
